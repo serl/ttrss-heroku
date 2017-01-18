@@ -1,0 +1,4 @@
+{
+    "name": "TT-RSS on Heruku",
+    "addons": ["heroku-postgresql:hobby-dev"]
+}

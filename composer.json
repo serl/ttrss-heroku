@@ -1,0 +1,14 @@
+{
+  "require": {
+    "ext-mbstring": "*",
+    "ext-gd": "*",
+    "ext-pcntl": "*",
+    "aws/aws-sdk-php": "^3.21"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  },
+  "scripts": {
+    "post-install-cmd" : "./post-install.sh"
+  }
+}
