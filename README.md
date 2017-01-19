@@ -2,6 +2,8 @@
 
 > It is possible and it works, even with free dynos!
 
+Thanks [Tiny Tiny RSS](http://tt-rss.org) for your existence, and thanks to [Reuben Castelino](https://projectdelphai.github.io/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/) and [Art Chaidarun](https://chaidarun.com/ttrss-heroku) for pioneering the deploy on Heroku.
+
 If you have issues, feel free to bug report/submit pull request. Depending on spare time I'll look into it.
 
 
