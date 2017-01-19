@@ -69,6 +69,11 @@ $ heroku restart
 ```
 
 
+## Update TT-RSS version
+
+Either you update the submodule in `tt-rss`, or you wait me to pick the latest commit (and then pull my changes), then update your Heroku application (`git push heroku master`).
+
+
 ## Tips to spare dyno hours
 
 * Prefer scheduler over daemon for updates (*Solution #1*)... Maybe less than once per hour?
