@@ -1,4 +1,4 @@
 {
     "name": "TT-RSS on Heruku",
-    "addons": ["heroku-postgresql:hobby-dev"]
+    "addons": ["heroku-postgresql:hobby-dev", "scheduler:standard"]
 }
