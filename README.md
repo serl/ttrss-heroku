@@ -67,6 +67,14 @@ $ heroku restart
 ```
 
 
+## Tips to spare dyno hours
+
+* Prefer scheduler over daemon for updates (*Solution #1*)... Maybe less than once per hour?
+* Put wisely the update interval for each feed (where *wisely* = *as loose as possible*).
+* Let the web dyno go to sleep when it's tired (don't keep that tab always open / use The Great Suspender on Chrome).
+* *(unrelated to dyno hours, but still important)* As we're in the free tier for the database, we're limited to 10k rows. Check from time to time if you're compliant (Heroku web interface is friendly). If not, consider deleting some feeds.
+
+
 ## TODOs
 
 * Email digest support
