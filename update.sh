@@ -9,7 +9,7 @@ case "$1" in
         psql "$DATABASE_URL" -c 'UPDATE ttrss_feeds SET favicon_last_checked=NULL, last_updated=NULL, last_update_started=NULL;' 2>/dev/null
         "$0"
         echo "Now you should restart the web dyno to actually see the icons."
-        echo "Do this by running `heroku restart`."
+        echo "Do this by running 'heroku restart'."
         ;;
     *)
         php tt-rss/update.php --feeds
