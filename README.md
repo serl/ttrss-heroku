@@ -84,5 +84,6 @@ Either you update the submodule in `tt-rss`, or you wait me to pick the latest c
 
 ## TODOs
 
+* Persist sessions (memcached)?
 * Email digest support
 * *You name it*
