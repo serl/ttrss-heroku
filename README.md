@@ -44,6 +44,8 @@ $ heroku addons:open scheduler
 
 Then on the web interface that appears, add a new hourly job. The command to run is `update`.
 
+NOTE: in order to comply the 10k row limit of the free tier, after the update I'm truncating the `ttrss_tags` table, as I'm not personally using this feature (and it uses a lot of rows).
+
 ### Solution #2
 
 You could fire worker dyno with the `update-daemon` command (and let it eat a lot of free dyno hours).

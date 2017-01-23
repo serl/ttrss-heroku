@@ -14,5 +14,6 @@ case "$1" in
     *)
         php tt-rss/update.php --feeds
         php s3_sync.php upload
+        psql "$DATABASE_URL" -c 'TRUNCATE ttrss_tags;' 2>/dev/null
         ;;
 esac
