@@ -8,8 +8,9 @@ If you have issues, feel free to bug report/submit pull request. Depending on sp
 
 
 ## Quick start
+> (note: the Deploy to Heroku button [doesn't support](https://devcenter.heroku.com/articles/heroku-button#requirements) projects with submodules, so this repo can't be auto-deployed. However, the instructions are pretty simple!)
 
-Supposing you have already a Heroku account and you have the toolbelt installed and configured in your environment:
+Supposing you have already a Heroku account and you have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed:
 
 ```sh
 # clone this repository
@@ -24,7 +25,7 @@ $ heroku addons:create heroku-postgresql:hobby-dev
 # everything is ready, push! (this will take time)
 $ git push heroku master
 
-# and enjoy (credentials are admin:password, so go to change the password)
+# and enjoy (default credentials are admin:password; you should change the password immediately)
 $ heroku open
 ```
 
