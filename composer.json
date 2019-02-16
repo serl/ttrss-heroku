@@ -1,5 +1,8 @@
 {
+  "name": "serl/ttrss-heroku",
+  "description": "Tiny Tiny RSS on Heroku, and it's actually working!",
   "require": {
+    "php": "^7.3.0",
     "ext-mbstring": "*",
     "ext-gd": "*",
     "ext-pcntl": "*",
