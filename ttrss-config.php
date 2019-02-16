@@ -200,7 +200,7 @@
 	// Disabling auth_internal in this list would automatically disable
 	// reset password link on the login form.
 
-	define('LOG_DESTINATION', 'sql');
+	define('LOG_DESTINATION', '');
 	// Log destination to use. Possible values: sql (uses internal logging
 	// you can read in Preferences -> System), syslog - logs to system log.
 	// Setting this to blank uses PHP logging (usually to http server
