@@ -8,6 +8,7 @@ If you have issues, feel free to bug report/submit pull request. Depending on sp
 
 
 ## Quick start
+
 > (note: the Deploy to Heroku button [doesn't support](https://devcenter.heroku.com/articles/heroku-button#requirements) projects with submodules, so this repo can't be auto-deployed. However, the instructions are pretty simple!)
 
 Supposing you have already a Heroku account and you have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed:
@@ -32,7 +33,7 @@ $ heroku open
 
 ## Update the feeds
 
-As you'll quickly discover, the feeds are not going to update by themselves.
+As you'll quickly discover, the feeds are *not* going to update by themselves.
 
 ### Solution #1 *(recommended)*
 
@@ -49,12 +50,14 @@ NOTE: in order to comply the 10k row limit of the free tier, after the update I'
 
 ### Solution #2
 
-You could fire worker dyno with the `update-daemon` command (and let it eat a lot of free dyno hours).
+You could fire worker dyno with the `update-daemon` command (but think about those juicy dyno hours).
 
 
 ## Feed icons are disappearing!
 
-I've a solution for you. Create an account on Amazon Web Services, a bucket on S3 (names are unique on the platform) and credentials to access to it from IAM. When you have all this, set these variables on the application (change where needed):
+There's a solution!
+Create an account on Amazon Web Services, a bucket on S3 (names are unique on the platform) and credentials to access to it from IAM.
+When you have all this, set these variables on the application (change where needed):
 
 ```sh
 $ heroku config:set \
@@ -80,7 +83,7 @@ Either you update the submodule in `tt-rss`, or you wait me to pick the latest c
 ## Tips to spare dyno hours
 
 * Prefer scheduler over daemon for updates (*Solution #1*)... Maybe less than once per hour?
-* Put wisely the update interval for each feed (where *wisely* = *as loose as possible*).
+* Put wisely the update interval for each feed (I mean *as loose as possible*).
 * Let the web dyno go to sleep when it's tired (don't keep that tab always open / use The Great Suspender on Chrome).
 * *(unrelated to dyno hours, but still important)* As we're in the free tier for the database, we're limited to 10k rows. Check from time to time if you're compliant (Heroku web interface is friendly). If not, consider deleting some feeds.
 
