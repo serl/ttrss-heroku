@@ -12,3 +12,7 @@ if ! psql "$DATABASE_URL" -c 'SELECT schema_version FROM ttrss_version' &>/dev/n
     echo "Initializing database..."
     psql "$DATABASE_URL" < tt-rss/schema/ttrss_schema_pgsql.sql >/dev/null
 fi
+
+echo "Adding Fever API Plugin"
+mkdir -p tt-rss/plugins.local
+git clone https://github.com/DigitalDJ/tinytinyrss-fever-plugin.git fever
