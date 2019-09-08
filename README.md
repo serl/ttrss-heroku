@@ -75,6 +75,22 @@ $ heroku restart
 ```
 
 
+## Add plugins
+
+You can add custom plugins by setting the env variable `TTRSS_PLUGINS`.
+It should be a comma-separated list of items in the format `name:git-repository-url#branch_or_tag` (or `name:git-repository-url`, if the default branch is ok for you).
+
+For example:
+
+```sh
+$ heroku config:set \
+  TTRSS_PLUGINS='favicon_badge:https://github.com/ctag/favicon_badge,fever:https://github.com/DigitalDJ/tinytinyrss-fever-plugin#master'
+$ heroku releases:retry
+```
+
+Note: the second command depends on the releases-retry Heroku plugin to trigger a rebuild. Install it with `heroku plugins:install heroku-releases-retry`.
+
+
 ## Update TT-RSS version
 
 Either you update the submodule in `tt-rss`, or you wait me to pick the latest commit (and then pull my changes), then update your Heroku application (`git push heroku master`).
