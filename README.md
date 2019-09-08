@@ -23,6 +23,8 @@ $ heroku create my-fancy-ttrss
 # we'll need a database
 $ heroku addons:create heroku-postgresql:hobby-dev
 
+# consider adding plugins now, you'll spare some extra builds (see §Adding plugins)
+
 # everything is ready, push! (this will take time)
 $ git push heroku master
 
@@ -75,7 +77,7 @@ $ heroku restart
 ```
 
 
-## Add plugins
+## Adding plugins
 
 You can add custom plugins by setting the env variable `TTRSS_PLUGINS`.
 It should be a comma-separated list of items in the format `name:git-repository-url#branch_or_tag` (or `name:git-repository-url`, if the default branch is ok for you).
@@ -85,10 +87,8 @@ For example:
 ```sh
 $ heroku config:set \
   TTRSS_PLUGINS='favicon_badge:https://github.com/ctag/favicon_badge,fever:https://github.com/DigitalDJ/tinytinyrss-fever-plugin#master'
-$ heroku releases:retry
+$ git push -f heroku HEAD~:master && git push heroku master # dirty trick to trigger a rebuild (not needed if you're installing or updating)
 ```
-
-Note: the second command depends on the releases-retry Heroku plugin to trigger a rebuild. Install it with `heroku plugins:install heroku-releases-retry`.
 
 
 ## Update TT-RSS version
