@@ -6,6 +6,7 @@
     "ext-mbstring": "*",
     "ext-gd": "*",
     "ext-pcntl": "*",
+    "ext-intl": "*",
     "aws/aws-sdk-php": "^3.21"
   },
   "require-dev": {
