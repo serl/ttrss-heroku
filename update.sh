@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
+
+./ttrss-init.sh
 
 case "$1" in
     daemon)

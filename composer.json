@@ -11,8 +11,5 @@
   },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
-  },
-  "scripts": {
-    "post-install-cmd" : "./post-install.sh"
   }
 }
