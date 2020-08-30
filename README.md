@@ -6,10 +6,9 @@ Thanks [Tiny Tiny RSS](http://tt-rss.org) for your existence, and thanks to [Reu
 
 If you have issues, feel free to bug report/submit pull request. Depending on spare time I'll look into it.
 
-
 ## Quick start
 
-> (note: the Deploy to Heroku button [doesn't support](https://devcenter.heroku.com/articles/heroku-button#requirements) projects with submodules, so this repo can't be auto-deployed. However, the instructions are pretty simple!)
+> (TODO: as we're not using submodules anymore, maybe the [Heroku button](https://devcenter.heroku.com/articles/heroku-button#requirements) works? Have to check!)
 
 Supposing you have already a Heroku account and you have the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed:
 
@@ -32,7 +31,6 @@ $ git push heroku master
 $ heroku open
 ```
 
-
 ## Update the feeds
 
 As you'll quickly discover, the feeds are *not* going to update by themselves.
@@ -42,8 +40,8 @@ As you'll quickly discover, the feeds are *not* going to update by themselves.
 Use the scheduler addon:
 
 ```sh
-$ heroku addons:create scheduler:standard
-$ heroku addons:open scheduler
+heroku addons:create scheduler:standard
+heroku addons:open scheduler
 ```
 
 Then on the web interface that appears, add a new hourly job. The command to run is `update`.
@@ -54,8 +52,7 @@ NOTE: in order to comply the 10k row limit of the free tier, after the update I'
 
 You could fire worker dyno with the `update-daemon` command (but think about those juicy dyno hours).
 
-
-## Feed icons are disappearing!
+## Hey! Feed icons are disappearing
 
 There's a solution!
 Create an account on Amazon Web Services, a bucket on S3 (names are unique on the platform) and credentials to access to it from IAM.
@@ -72,10 +69,9 @@ $ heroku config:set \
 Then, if you want the icons to appear, you should force the application to reload them (**don't do this if you're updating with *Solution #2*!**):
 
 ```sh
-$ heroku run update-icons
-$ heroku restart
+heroku run update-icons
+heroku restart
 ```
-
 
 ## Adding plugins
 
@@ -90,11 +86,13 @@ $ heroku config:set \
 $ git push -f heroku HEAD~:master && git push heroku master # dirty trick to trigger a rebuild (not needed if you're installing or updating)
 ```
 
+## TT-RSS version
 
-## Update TT-RSS version
+The latest tt-rss version is downloaded from the [master branch](https://git.tt-rss.org/fox/tt-rss) each time the application starts, so you're always up-to-date.
 
-Either you update the submodule in `tt-rss`, or you wait me to pick the latest commit (and then pull my changes), then update your Heroku application (`git push heroku master`).
-
+NOTE: given that dynos don't share disk, this also means that potentially the `update` dyno and the `web` dyno run on a different version of tt-rss.
+In case the database schema is changed, the `update` dyno should fail, while the `web` dyno should ask for an administrator to update the database.
+In any case... let's all together do backups and hope that everything goes smoothly.
 
 ## Tips to spare dyno hours
 
@@ -102,7 +100,6 @@ Either you update the submodule in `tt-rss`, or you wait me to pick the latest c
 * Put wisely the update interval for each feed (I mean *as loose as possible*).
 * Let the web dyno go to sleep when it's tired (don't keep that tab always open / use The Great Suspender on Chrome).
 * *(unrelated to dyno hours, but still important)* As we're in the free tier for the database, we're limited to 10k rows. Check from time to time if you're compliant (Heroku web interface is friendly). If not, consider deleting some feeds.
-
 
 ## TODOs
 

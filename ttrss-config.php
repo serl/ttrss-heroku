@@ -6,7 +6,7 @@
 	$db_components = parse_url(getenv("DATABASE_URL"));
 
 	if ($db_components['scheme'] != 'postgres')
-		die('Wrong database url');
+		die("Wrong database url\n");
 
 	define('DB_TYPE', "pgsql");
 	define('DB_HOST', $db_components['host']);
