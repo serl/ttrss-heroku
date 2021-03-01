@@ -1,6 +1,6 @@
 <?php
 
-$plugins_spec = getenv('TTRSS_PLUGINS');
+$plugins_spec = getenv('TTRSS_HEROKU_PLUGINS');
 
 if (empty($plugins_spec)) {
     exit;
