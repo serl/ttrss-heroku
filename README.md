@@ -75,16 +75,19 @@ heroku restart
 
 ## Adding plugins
 
-You can add custom plugins by setting the env variable `TTRSS_PLUGINS`.
+You can add custom plugins by setting the env variable `TTRSS_HEROKU_PLUGINS`.
 It should be a comma-separated list of items in the format `name:git-repository-url#branch_or_tag` (or `name:git-repository-url`, if the default branch is ok for you).
 
 For example:
 
 ```sh
 $ heroku config:set \
-  TTRSS_PLUGINS='favicon_badge:https://github.com/ctag/favicon_badge,fever:https://github.com/DigitalDJ/tinytinyrss-fever-plugin#master'
-$ git push -f heroku HEAD~:master && git push heroku master # dirty trick to trigger a rebuild (not needed if you're installing or updating)
+  TTRSS_HEROKU_PLUGINS='favicon_badge:https://github.com/ctag/favicon_badge,fever:https://github.com/DigitalDJ/tinytinyrss-fever-plugin#master'
 ```
+
+> NOTE: this env variable name changed because of a name clash with [tt-rss new global configuration](https://tt-rss.org/wiki/GlobalConfig) (which, by the way, you could use to customize your settings, via Heroku config: `heroku config:set TTRSS_SOMETHING=SOMEVALUE`).
+>
+> If you use the legacy variable ~~`TTRSS_PLUGINS`~~ to install additional plugins, you MUST migrate to the new name: `heroku config:set "TTRSS_HEROKU_PLUGINS=$(heroku config:get TTRSS_PLUGINS)" && heroku config:unset TTRSS_PLUGINS`.
 
 ## TT-RSS version
 
