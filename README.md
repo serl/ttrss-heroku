@@ -4,7 +4,7 @@
 
 Thanks [Tiny Tiny RSS](http://tt-rss.org) for your existence, and thanks to [Reuben Castelino](https://projectdelphai.github.io/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/) and [Art Chaidarun](https://chaidarun.com/ttrss-heroku) for pioneering the deploy on Heroku.
 
-If you have issues, feel free to bug report/submit pull request. Depending on spare time I'll look into it.
+NOTE: this repository is deprecated as it uses a deprecated version of PHP and mimics the deprecated [host machine](https://tt-rss.org/wiki/InstallationNotesHost) method. We should all migrate to [containers](https://tt-rss.org/wiki/InstallationNotes).
 
 ## Quick start
 
@@ -94,7 +94,7 @@ $ heroku config:set \
 The latest tt-rss version is downloaded from the [master branch](https://git.tt-rss.org/fox/tt-rss) each time the application starts, so you're always up-to-date.
 
 NOTE: given that dynos don't share disk, this also means that potentially the `update` dyno and the `web` dyno run on a different version of tt-rss.
-In case the database schema is changed, the `update` dyno should fail, while the `web` dyno should ask for an administrator to update the database.
+In case the database schema is changed, the `update` dyno will silently update it, which might lead to data loss.
 In any case... let's all together do backups and hope that everything goes smoothly.
 
 ## Tips to spare dyno hours
