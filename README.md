@@ -6,6 +6,8 @@ Thanks [Tiny Tiny RSS](http://tt-rss.org) for your existence, and thanks to [Reu
 
 NOTE: this repository is deprecated as it uses a deprecated version of PHP and mimics the deprecated [host machine](https://tt-rss.org/wiki/InstallationNotesHost) method. We should all migrate to [containers](https://tt-rss.org/wiki/InstallationNotes).
 
+**NOTE/2: this repository is now archived and pointless, as Heroku does not offer a free stuff anymore. Personally, [I moved to Fly.io](https://github.com/serl/ttrss-fly).**
+
 ## Quick start
 
 > (TODO: as we're not using submodules anymore, maybe the [Heroku button](https://devcenter.heroku.com/articles/heroku-button#requirements) works? Have to check!)
